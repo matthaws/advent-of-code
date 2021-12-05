@@ -7,7 +7,7 @@ const parseInput = (fileName, type) => {
     ? inputLines.filter(Boolean).map(Number)
     : type === "spaces"
     ? inputLines
-    : inputLine.filter(Boolean);
+    : inputLines.filter(Boolean);
 };
 
 module.exports = parseInput;
