@@ -1,2 +1,2 @@
 .prettierrc
-inputs/
+node_modules/

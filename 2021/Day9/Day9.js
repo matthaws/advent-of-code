@@ -1,4 +1,4 @@
-const inputParser = require("../../inputParser.js");
+const inputParser = require("../inputParser.ts");;
 const heightMap = inputParser("day-9.txt", "string");
 
 const sample = [

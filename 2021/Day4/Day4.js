@@ -1,4 +1,4 @@
-const inputParser = require("../../inputParser.js");
+const inputParser = require("../inputParser.ts");;
 const parseBingoBoards = require("./parseBingoBoards.js");
 const bingoInput = inputParser("day-4.txt", "spaces");
 

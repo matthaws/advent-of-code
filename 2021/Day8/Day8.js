@@ -1,4 +1,4 @@
-const inputParser = require("../../inputParser.js");
+const inputParser = require("../inputParser.ts");;
 const problemInput = inputParser("day-8.txt", "string");
 
 const easySegments = {

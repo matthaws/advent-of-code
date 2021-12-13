@@ -1,4 +1,4 @@
-const inputParser = require("../../inputParser.js");
+const inputParser = require("../inputParser.ts");;
 const inputLines = inputParser("day-10.txt", "string");
 
 const charMap = {

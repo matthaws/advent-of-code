@@ -1,4 +1,4 @@
-const inputParser = require("../../inputParser.js");
+const inputParser = require("../inputParser.ts");
 const subDirections = inputParser("day-2.txt", "string");
 
 // PART ONE

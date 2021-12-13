@@ -1,4 +1,4 @@
-const inputParser = require("../../inputParser.js");
+const inputParser = require("../inputParser.ts");;
 const crabSubs = inputParser("day-7.txt", "number");
 
 const sampleCrabSubs = [16, 1, 2, 0, 4, 2, 7, 1, 2, 14];

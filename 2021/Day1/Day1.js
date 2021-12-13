@@ -1,4 +1,4 @@
-const inputParser = require("../inputParser.js");
+const inputParser = require("../inputParser.ts");
 const sonarReadings = inputParser("day-1.txt", "number");
 
 // PART ONE

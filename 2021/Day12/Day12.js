@@ -1,4 +1,4 @@
-const inputParser = require("../../inputParser.js");
+const inputParser = require("../inputParser.ts");;
 const tunnelConnections = inputParser("day-12.txt", "string");
 
 class Cave {
