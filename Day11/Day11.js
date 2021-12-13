@@ -1,4 +1,3 @@
-const { create } = require("domain");
 const inputParser = require("../inputParser.js");
 const octopi = inputParser("day-11.txt", "string");
 
