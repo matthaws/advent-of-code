@@ -1,5 +1,3 @@
-import { parse } from 'path/posix';
-
 const inputParser = require('../inputParser.ts');
 const realInput = inputParser('day-14.txt', 'string');
 

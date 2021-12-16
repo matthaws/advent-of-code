@@ -1,20 +1,6 @@
-const inputParser = require("../inputParser.ts");;
-const octopi = inputParser("day-11.txt", "string");
-
-const createGrid = (input) =>
-  input.reduce(
-    (grid, line, rowIdx) => ({
-      ...grid,
-      ...line.split("").reduce(
-        (subGrid, val, colIdx) => ({
-          ...subGrid,
-          [`${rowIdx},${colIdx}`]: parseInt(val),
-        }),
-        {}
-      ),
-    }),
-    {}
-  );
+const inputParser = require('../inputParser.ts');
+const createNumericGridMap = require('../helpers/createNumericGridMap');
+const octopi = inputParser('day-11.txt', 'text');
 
 const adjacentDiffs = [
   [0, 1],
@@ -30,8 +16,8 @@ const adjacentDiffs = [
 const getAllNeighborPositions = (pos, grid) =>
   adjacentDiffs
     .map(([xDiff, yDiff]) => {
-      const [x, y] = pos.split(",").map(Number);
-      return [x + xDiff, y + yDiff].join(",");
+      const [x, y] = pos.split(',').map(Number);
+      return [x + xDiff, y + yDiff].join(',');
     })
     .filter((neighborPos) => grid[neighborPos] !== undefined);
 
@@ -41,7 +27,7 @@ const step = (grid) =>
 const flash = (grid) => {
   let totalFlashCount = 0;
   let newGrid = grid;
-  const flashedThisRound = new Set()
+  const flashedThisRound = new Set();
 
   while (
     Object.entries(newGrid)
@@ -71,16 +57,16 @@ const flash = (grid) => {
       return updatedGrid;
     }, newGrid);
   }
-  console.log(flashedThisRound)
+  console.log(flashedThisRound);
   return [
     newGrid,
     totalFlashCount,
-    Object.keys(grid).every(pos => flashedThisRound.has(pos))
+    Object.keys(grid).every((pos) => flashedThisRound.has(pos)),
   ];
 };
 
 const numFlashesAfterNSteps = (input, numSteps) => {
-  let grid = createGrid(input);
+  let grid = createNumericGridMap(input);
   let round = 0;
   let flashes = 0;
   while (round < numSteps) {
@@ -95,12 +81,12 @@ const numFlashesAfterNSteps = (input, numSteps) => {
 };
 
 const findFirstSynchronizedFlash = (input) => {
-  let grid = createGrid(input);
+  let grid = createNumericGridMap(input);
   let stepNum = 0;
   let didAllFlash = false;
   while (!didAllFlash) {
-    stepNum++; 
-    const [newGrid, _ ,didAllFlashThisRound] = flash(step(grid));
+    stepNum++;
+    const [newGrid, _, didAllFlashThisRound] = flash(step(grid));
     grid = newGrid;
     didAllFlash = didAllFlashThisRound;
   }
