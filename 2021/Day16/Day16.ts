@@ -1,5 +1,5 @@
 const parseDay16Input = require('../inputParser.ts');
-const hexidecimalTransmission = parseDay16Input('day-15.txt', 'string');
+const hexidecimalTransmission = parseDay16Input('day-16.txt', 'string');
 
 const parseHexToDecimal = (input: string): string => {
   const val = parseInt(input, 16).toString(2);
