@@ -1,5 +1,3 @@
-import path from "path";
-
 const inputParser = require("../inputParser.ts");
 const landElevationInput = inputParser("day-12.txt", "text");
 
