@@ -1,4 +1,4 @@
-const parseDay18Input = require('../inputParser.ts');
+const parseDay18Input = require('../../inputParser.ts');
 const stringValues = parseDay18Input('day-18-sample.txt', 'string');
 const day18Helpers = require('./helpers.ts');
 

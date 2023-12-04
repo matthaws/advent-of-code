@@ -1,4 +1,4 @@
-const parseDay20Input = require('../inputParser.ts');
+const parseDay20Input = require('../../inputParser.ts');
 const input = parseDay20Input('day-20.txt', 'string');
 
 const convertImage = (image: string[]): Record<string, string> => {

@@ -1,4 +1,4 @@
-const parseDay15Input = require('../inputParser.ts');
+const parseDay15Input = require('../../inputParser.ts');
 const caveMap = parseDay15Input('day-15.txt', 'string');
 const createCaveRiskMap = require('../helpers/createNumericGridMap');
 

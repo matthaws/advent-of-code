@@ -1,4 +1,4 @@
-const inputParser = require('../inputParser.ts');
+const inputParser = require('../../inputParser.ts');
 const realInput = inputParser('day-14.txt', 'string');
 
 type Template = string;

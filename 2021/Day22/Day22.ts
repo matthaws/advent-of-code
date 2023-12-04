@@ -1,4 +1,4 @@
-const parseDay22Input = require('../inputParser.ts');
+const parseDay22Input = require('../../inputParser.ts');
 const cubitInstructions = parseDay22Input('day-22.txt', 'string');
 
 const parseLine = (

@@ -1,4 +1,4 @@
-const inputParser = require('../inputParser.ts');
+const inputParser = require('../../inputParser.ts');
 const createNumericGridMap = require('../helpers/createNumericGridMap');
 const octopi = inputParser('day-11.txt', 'text');
 
