@@ -1,5 +1,3 @@
-import { match } from "assert";
-
 const inputParser = require("../inputParser.ts");
 const inputLines = inputParser("day-2.txt", "text");
 

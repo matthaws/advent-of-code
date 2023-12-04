@@ -13,16 +13,6 @@ const textDigits: Record<string, string> = {
   nine: "9",
 };
 
-const sample = [
-  "two1nine",
-  "eightwothree",
-  "abcone2threexyz",
-  "xtwone3four",
-  "4nineeightseven2",
-  "zoneight234",
-  "7pqrstsixteen",
-];
-
 const parseLine = (line: string) => {
   const digits: string[] = [];
   line.split("").forEach((char, i) => {
