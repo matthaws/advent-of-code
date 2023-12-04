@@ -1,4 +1,4 @@
-const inputParser = require("../inputParser.ts");
+const inputParser = require("../../inputParser.ts");
 const stairInput = inputParser("day-1.txt", "text");
 
 const parseStairs = (stairs: string[]) =>

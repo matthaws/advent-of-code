@@ -1,4 +1,4 @@
-const inputParser = require("../inputParser.ts");
+const inputParser = require("../../inputParser.ts");
 const inputLines = inputParser("day-3.txt", "text");
 
 type Loc = string;

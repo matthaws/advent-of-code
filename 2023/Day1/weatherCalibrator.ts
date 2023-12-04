@@ -1,4 +1,4 @@
-const inputParser = require("../inputParser.ts");
+const inputParser = require("../../inputParser.ts");
 const inputLines = inputParser("day-1.txt", "text");
 
 const textDigits: Record<string, string> = {

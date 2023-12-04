@@ -1,4 +1,4 @@
-const inputParser = require("../inputParser.ts");
+const inputParser = require("../../inputParser.ts");
 const inputLines = inputParser("day-2.txt", "text");
 
 type Color = "red" | "green" | "blue";
