@@ -1,47 +1,13 @@
 const inputParser = require("../../inputParser.ts");
 const inputLines = inputParser("day-16.txt", "text");
 
-type DIR = "right" | "left" | "down" | "up";
-
-const STRAIGHT_DIRS: Record<string, DIR> = {
-  left: "right",
-  right: "left",
-  up: "down",
-  down: "up",
-};
-
-const NINETY_LEFT: Record<string, DIR> = {
-  left: "up",
-  up: "right",
-  down: "left",
-  right: "down",
-};
-
-const NINETY_RIGHT: Record<string, DIR> = {
-  left: "down",
-  up: "left",
-  down: "right",
-  right: "up",
-};
-
-const getNewCoord = (
-  coord: [number, number],
-  direction: DIR
-): [number, number] => {
-  switch (direction) {
-    case "right":
-      return [coord[0], coord[1] + 1];
-    case "left":
-      return [coord[0], coord[1] - 1];
-    case "up":
-      return [coord[0] - 1, coord[1]];
-    case "down":
-      return [coord[0] + 1, coord[1]];
-
-    default:
-      return coord;
-  }
-};
+import {
+  DIR,
+  getNewCoord,
+  STRAIGHT_DIRS,
+  NINETY_LEFT,
+  NINETY_RIGHT,
+} from "../utils/gridTravel";
 
 const emptySpace = (
   grid: string[][],
@@ -49,11 +15,13 @@ const emptySpace = (
   cameFromDirection: DIR,
   memo: Set<string>
 ): [number, number][] => {
-
   const nextCoord = getNewCoord(currentCoord, STRAIGHT_DIRS[cameFromDirection]);
   if (!grid[nextCoord[0]]?.[nextCoord[1]]) return [currentCoord];
 
-  return [...nextStepBeam(grid, nextCoord, cameFromDirection, memo), currentCoord];
+  return [
+    ...nextStepBeam(grid, nextCoord, cameFromDirection, memo),
+    currentCoord,
+  ];
 };
 
 const splitBeam = (
@@ -160,7 +128,7 @@ const sample = [
 const findMostPossibleEnergizeTiles = (input: string[][]) => {
   let largest = 0;
   for (let i = 0; i < input[0].length; i++) {
-    console.log('column', i, 'of', input[0].length)
+    console.log("column", i, "of", input[0].length);
     const fromUp = new Set(
       nextStepBeam(input, [0, i], "up").map((coord) => coord.join(","))
     );
@@ -174,7 +142,7 @@ const findMostPossibleEnergizeTiles = (input: string[][]) => {
   }
 
   for (let j = 0; j < input.length; j++) {
-    console.log('row', j, 'of', input.length)
+    console.log("row", j, "of", input.length);
     const fromRight = new Set(
       nextStepBeam(input, [0, j], "right").map((coord) => coord.join(","))
     );
@@ -183,12 +151,14 @@ const findMostPossibleEnergizeTiles = (input: string[][]) => {
         coord.join(",")
       )
     );
-   
+
     largest = Math.max(largest, fromLeft.size, fromRight.size);
   }
   return largest;
 };
 
 console.log(
-  findMostPossibleEnergizeTiles(inputLines.map((line: string) => line.split("")))
+  findMostPossibleEnergizeTiles(
+    inputLines.map((line: string) => line.split(""))
+  )
 );
