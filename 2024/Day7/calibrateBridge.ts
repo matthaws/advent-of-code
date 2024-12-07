@@ -18,31 +18,19 @@ const addOrMultiplyOrConcat = (
   const multiply = sum * remainingValues[0];
   const add = sum + remainingValues[0];
   const concat = Number(`${sum}${remainingValues[0]}`);
-  if (
-    [multiply, add, concat].includes(target) &&
-    remainingValues.slice(1).length === 0
-  )
+  const newRemaining = remainingValues.slice(1);
+
+  if ([multiply, add, concat].includes(target) && newRemaining.length === 0)
     return true;
 
   if ([multiply, add, concat].every((val) => val > target)) return false;
   if (remainingValues.slice(1).length === 0) return false;
 
-  const testWithProduct = addOrMultiplyOrConcat(
-    target,
-    multiply,
-    remainingValues.slice(1)
+  return (
+    addOrMultiplyOrConcat(target, multiply, newRemaining) ||
+    addOrMultiplyOrConcat(target, concat, newRemaining) ||
+    addOrMultiplyOrConcat(target, add, newRemaining)
   );
-  if (testWithProduct) return true;
-
-  const testWithAdd = addOrMultiplyOrConcat(
-    target,
-    add,
-    remainingValues.slice(1)
-  );
-
-  if (testWithAdd) return true;
-
-  return addOrMultiplyOrConcat(target, concat, remainingValues.slice(1));
 };
 
 const sumPossiblyTrueEquations = () => {
