@@ -1,5 +1,5 @@
 const inputParser = require("../../inputParser.ts");
-const inputLines = inputParser("day-12.txt", "text");
+const inputLines = inputParser("day-12gi.txt", "text");
 const { ORTHAGONAL_DIFFS } = require("../../constants");
 
 type Pos = [number, number];
